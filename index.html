@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDFC Bank - Mobile App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="phone-frame">
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <span class="time">11:54</span>
+                <div class="status-icons">
+                    <div class="signal-bars">
+                        <div class="bar active"></div>
+                        <div class="bar active"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <span class="network">5G</span>
+                    <div class="battery"></div>
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <button class="header-btn" id="menuBtn">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 6h18M3 12h18M3 18h18" stroke="#68131a" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="header-btn back-btn hidden" id="backBtn">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18l-6-6 6-6" stroke="#68131a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="search-bar">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="8" stroke="#6b7280" stroke-width="2"/>
+                            <path d="m21 21-4.35-4.35" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Search 'Gas Bill'</span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="header-btn">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" stroke="#68131a" stroke-width="2"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#68131a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="header-btn">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M18.36 6.64A9 9 0 1 1 5.64 6.64" stroke="#68131a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="2" x2="12" y2="12" stroke="#68131a" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content" id="mainContent">
+                <!-- Home View -->
+                <div class="view home-view" id="homeView">
+                    <!-- Chips -->
+                    <div class="chips-container">
+                        <div class="chips">
+                            <span class="chip">Refer & Earn</span>
+                            <span class="chip active">Savings</span>
+                            <span class="chip active">Loans</span>
+                            <span class="chip">Credit Card</span>
+                        </div>
+                    </div>
+
+                    <!-- Account Cards Carousel -->
+                    <div class="account-cards-section">
+                        <div class="account-cards-carousel" id="accountCarousel">
+                            <!-- Account cards will be populated by JavaScript -->
+                        </div>
+                        <div class="carousel-dots" id="carouselDots">
+                            <!-- Dots will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <div class="action-btn">
+                            <button class="action-button">
+                                <svg class="action-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <span class="action-label">Send Money</span>
+                        </div>
+                        <div class="action-btn">
+                            <button class="action-button">
+                                <svg class="action-icon" viewBox="0 0 24 24" fill="none">
+                                    <line x1="12" y1="5" x2="12" y2="19" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="5" y1="12" x2="19" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <span class="action-label">Create Fixed Deposit</span>
+                        </div>
+                        <div class="action-btn">
+                            <button class="action-button" id="customizeBtn">
+                                <svg class="action-icon" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="2"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <span class="action-label">Customise Homepage</span>
+                        </div>
+                    </div>
+
+                    <!-- Credit Cards Section -->
+                    <div class="credit-cards-section">
+                        <div class="section-title">
+                            <h3>Credit Cards</h3>
+                        </div>
+                        <div class="credit-cards" id="creditCardsContainer">
+                            <!-- Credit cards will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- AI Suggestions Section -->
+                    <div class="ai-suggestions-section">
+                        <div class="section-title">
+                            <h3>AI Suggestions</h3>
+                            <span class="ai-badge">AI</span>
+                        </div>
+                        <div class="ai-suggestions" id="aiSuggestionsContainer">
+                            <!-- AI suggestions will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Homepage Content based on mode -->
+                    <div class="homepage-content" id="homepageContent">
+                        <div class="default-content" id="defaultContent">
+                            <div class="service-buttons">
+                                <button class="service-btn">
+                                    <span>Payments</span>
+                                    <svg class="chevron" viewBox="0 0 24 24" fill="none">
+                                        <polyline points="6,9 12,15 18,9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <button class="service-btn">
+                                    <span>Savings Accounts</span>
+                                    <svg class="chevron" viewBox="0 0 24 24" fill="none">
+                                        <polyline points="6,9 12,15 18,9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <button class="service-btn">
+                                    <span>Credit Card</span>
+                                    <svg class="chevron" viewBox="0 0 24 24" fill="none">
+                                        <polyline points="6,9 12,15 18,9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <button class="service-btn">
+                                    <span>Loans</span>
+                                    <svg class="chevron" viewBox="0 0 24 24" fill="none">
+                                        <polyline points="6,9 12,15 18,9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <button class="service-btn">
+                                    <span>Investments</span>
+                                    <svg class="chevron" viewBox="0 0 24 24" fill="none">
+                                        <polyline points="6,9 12,15 18,9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customized-content hidden" id="customizedContent">
+                            <div class="widgets-grid" id="widgetsGrid">
+                                <!-- Widgets will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customize View -->
+                <div class="view customize-view hidden" id="customizeView">
+                    <div class="customize-header">
+                        <h3>Customize your homepage</h3>
+                    </div>
+                    <div class="customize-grid" id="customizeGrid">
+                        <!-- Customize options will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- AI Suggestion Detail View -->
+                <div class="view ai-detail-view hidden" id="aiDetailView">
+                    <div class="ai-detail-content" id="aiDetailContent">
+                        <!-- AI suggestion details will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-items">
+                    <div class="nav-item active">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="9,22 9,12 15,12 15,22" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="nav-label active">Home</span>
+                    </div>
+                    <div class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="13" x2="8" y2="13" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="16" y1="17" x2="8" y2="17" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                            <polyline points="10,9 9,9 8,9" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="nav-label">Accounts</span>
+                    </div>
+                    <div class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="1" y="4" width="22" height="16" rx="2" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="1" y1="10" x2="23" y2="10" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="nav-label">Pay</span>
+                    </div>
+                    <div class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="18" x2="12" y2="12" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="9" y1="15" x2="15" y2="15" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="nav-label">Loans</span>
+                    </div>
+                    <div class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 20V10" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 20V4" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6 20v-6" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="nav-label">Services</span>
+                    </div>
+                </div>
+                <div class="home-indicator"></div>
+            </div>
+
+            <!-- Save Button (for customize view) -->
+            <div class="save-button-container hidden" id="saveButtonContainer">
+                <button class="save-button" id="saveButton">
+                    Save Customization
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
