@@ -37,13 +37,14 @@ const appData = {
   "creditCards": [
     {
       "id": "cc1",
-      "cardName": "IDFC SELECT Credit Card",
+      "cardName": "FIRST Millennia Credit Card",
       "cardNumber": "**** **** **** 1234",
       "creditLimit": "₹ 2,00,000",
       "availableCredit": "₹ 1,45,230",
       "dueAmount": "₹ 12,450",
       "dueDate": "25 Sep 2025",
       "lastStatement": "₹ 23,670",
+      "cardUrl": "https://www.idfcfirstbank.com/credit-card/millennia",
       "recentTransactions": [
         {"date": "15 Sep", "merchant": "Amazon", "amount": "₹ 2,340"},
         {"date": "14 Sep", "merchant": "Swiggy", "amount": "₹ 567"},
@@ -52,18 +53,49 @@ const appData = {
     },
     {
       "id": "cc2", 
-      "cardName": "IDFC WEALTH Credit Card",
+      "cardName": "FIRST Wealth Credit Card",
       "cardNumber": "**** **** **** 5678",
       "creditLimit": "₹ 5,00,000",
       "availableCredit": "₹ 4,67,890",
       "dueAmount": "₹ 8,120",
       "dueDate": "28 Sep 2025", 
       "lastStatement": "₹ 15,230",
+      "cardUrl": "https://www.idfcfirstbank.com/credit-card/wealth",
       "recentTransactions": [
         {"date": "16 Sep", "merchant": "BookMyShow", "amount": "₹ 1,200"},
         {"date": "15 Sep", "merchant": "Zara", "amount": "₹ 4,500"},
         {"date": "14 Sep", "merchant": "Uber", "amount": "₹ 450"}
       ]
+    }
+  ],
+  "smartInsights": [
+    {
+      "id": "insight1",
+      "title": "Pay Electricity Bill",
+      "description": "Your electricity bill of ₹1,240 is due in 3 days",
+      "priority": "high",
+      "action": "Pay Now",
+      "category": "bill_payment",
+      "details": {
+        "billAmount": "₹1,240",
+        "dueDate": "20 Sep 2025",
+        "provider": "Delhi Electricity Board"
+      }
+    },
+    {
+      "id": "insight2", 
+      "title": "Save for Vacation",
+      "description": "Based on your spending, you can save ₹5,000/month for your vacation goal",
+      "priority": "medium",
+      "action": "Set Goal",
+      "secondaryAction": "Edit Goal",
+      "category": "savings",
+      "details": {
+        "currentSavings": "₹15,000",
+        "targetAmount": "₹75,000",
+        "monthlyTarget": "₹5,000",
+        "destination": "European Tour"
+      }
     }
   ],
   "aiSuggestions": [
@@ -73,7 +105,13 @@ const appData = {
       "description": "Your electricity bill of ₹1,240 is due in 3 days",
       "priority": "high",
       "action": "Pay Now",
-      "category": "bill_payment"
+      "category": "bill_payment",
+      "details": {
+        "billAmount": "₹1,240",
+        "dueDate": "20 Sep 2025",
+        "provider": "Delhi Electricity Board",
+        "consumerNumber": "1234567890"
+      }
     },
     {
       "id": "ai2", 
@@ -81,7 +119,15 @@ const appData = {
       "description": "Based on your spending, you can save ₹5,000/month for your vacation goal",
       "priority": "medium",
       "action": "Set Goal",
-      "category": "savings"
+      "secondaryAction": "Edit Goal",
+      "category": "savings",
+      "details": {
+        "currentSavings": "₹15,000",
+        "targetAmount": "₹75,000",
+        "monthlyTarget": "₹5,000",
+        "timelineMonths": 12,
+        "destination": "European Tour"
+      }
     },
     {
       "id": "ai3",
@@ -89,7 +135,14 @@ const appData = {
       "description": "Your credit score improved by 15 points. Check your detailed report",
       "priority": "low",
       "action": "View Report",
-      "category": "credit"
+      "category": "credit",
+      "details": {
+        "currentScore": 785,
+        "previousScore": 770,
+        "improvement": 15,
+        "creditLimit": "₹7,00,000",
+        "utilization": "18%"
+      }
     },
     {
       "id": "ai4",
@@ -97,13 +150,34 @@ const appData = {
       "description": "SIP in Equity funds can help you save tax and grow wealth",
       "priority": "medium", 
       "action": "Explore",
-      "category": "investment"
+      "category": "investment",
+      "details": {
+        "recommendedAmount": "₹10,000",
+        "expectedReturns": "12-15%",
+        "taxSaving": "₹46,800",
+        "fundName": "IDFC Tax Advantage Fund"
+      }
+    },
+    {
+      "id": "ai5",
+      "title": "EMI Due Reminder",
+      "description": "Your home loan EMI of ₹25,000 is due tomorrow",
+      "priority": "high",
+      "action": "Pay EMI",
+      "category": "loan",
+      "details": {
+        "emiAmount": "₹25,000",
+        "dueDate": "18 Sep 2025",
+        "loanType": "Home Loan",
+        "remainingTenure": "15 years 8 months"
+      }
     }
   ],
   "widgets": [
     {"id": "payEMI", "label": "Pay EMI", "selected": true, "icon": "card"},
     {"id": "emiCalc", "label": "EMI Calculator", "selected": true, "icon": "calc"},
     {"id": "moneyMgr", "label": "Money Manager", "selected": true, "icon": "wallet"},
+    {"id": "smartInsights", "label": "Smart Insights", "selected": true, "icon": "smartBulb"},
     {"id": "insights", "label": "Spending Insights", "selected": false, "icon": "chart"},
     {"id": "billPay", "label": "Bill Payments", "selected": false, "icon": "bill"},
     {"id": "recharge", "label": "Recharge", "selected": false, "icon": "phone"},
@@ -111,6 +185,11 @@ const appData = {
     {"id": "insurance", "label": "Insurance", "selected": false, "icon": "shield"},
     {"id": "mutual", "label": "Mutual Funds", "selected": false, "icon": "chart2"},
     {"id": "gold", "label": "Digital Gold", "selected": false, "icon": "gold"}
+  ],
+  "paymentMethods": [
+    {"id": "upi", "name": "UPI", "icon": "upi", "details": "Pay instantly via UPI"},
+    {"id": "netbanking", "name": "Net Banking", "icon": "bank", "details": "IDFC FIRST Bank"},
+    {"id": "debit", "name": "Debit Card", "icon": "card", "details": "****1234"}
   ]
 };
 
@@ -120,7 +199,12 @@ let homepageMode = 'default'; // 'default' or 'customized'
 let selectedAccountId = 'acc1';
 let balanceVisible = {};
 let widgets = [...appData.widgets];
-let currentAISuggestion = null;
+let selectedPaymentMethod = 'upi';
+
+// Initialize balance visibility for all accounts
+appData.accounts.forEach(account => {
+  balanceVisible[account.id] = false;
+});
 
 // SVG Icons
 const icons = {
@@ -136,6 +220,14 @@ const icons = {
   wallet: `<path d="M8 3C8 2.44772 8.44772 2 9 2H15C15.5523 2 16 2.44772 16 3V4H18C19.1046 4 20 4.89543 20 6V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V6C4 4.89543 4.89543 4 6 4H8V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
            <circle cx="10" cy="8" r="0.5" fill="currentColor"/>
            <circle cx="14" cy="8" r="0.5" fill="currentColor"/>`,
+  smartBulb: `<path d="M9 21h6M12 3C8.5 3 6 5.5 6 9c0 2.4 1.2 4.5 3 5.7V17h6v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.5-2.5-6-6-6z" stroke="#68131a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+              <circle cx="10" cy="8" r="0.8" fill="#68131a"/>
+              <circle cx="14" cy="10" r="0.6" fill="#68131a"/>
+              <circle cx="8" cy="11" r="0.5" fill="#68131a"/>
+              <path d="M9 12l2-1 2 1.5" stroke="#68131a" stroke-width="1" stroke-linecap="round"/>
+              <path d="M10 13h4M11 14h2" stroke="#68131a" stroke-width="0.8" stroke-linecap="round"/>`,
+  ai: `<path d="M12 2l3.09 6.26L22 9l-5.91 3.74L18 20l-6-3.74L6 20l1.91-7.26L2 9l6.91-.74L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+       <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>`,
   chart: `<path d="M3 18L7 12L11 15L17 8L21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`,
   bill: `<rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
          <line x1="8" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -152,62 +244,116 @@ const icons = {
            <path d="M7 12l4-4 4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
   gold: `<rect x="3" y="8" width="18" height="4" rx="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
          <rect x="5" y="12" width="14" height="4" rx="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-         <rect x="7" y="16" width="10" height="4" rx="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`
+         <rect x="7" y="16" width="10" height="4" rx="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
+  upi: `<rect x="2" y="6" width="20" height="12" rx="3" stroke="currentColor" stroke-width="2"/>
+        <path d="M8 14h8M8 10h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`,
+  bank: `<path d="M3 21h18M5 21V7l8-4v18M19 21V7l-6-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+         <path d="M9 9v.01M9 12v.01M9 15v.01M13 9v.01M13 12v.01M13 15v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`
 };
 
-// Initialize balance visibility for all accounts
-appData.accounts.forEach(account => {
-  balanceVisible[account.id] = false;
-});
-
 // DOM Elements
-const homeView = document.getElementById('homeView');
-const customizeView = document.getElementById('customizeView');
-const aiDetailView = document.getElementById('aiDetailView');
-const backBtn = document.getElementById('backBtn');
-const menuBtn = document.getElementById('menuBtn');
-const customizeBtn = document.getElementById('customizeBtn');
-const saveButton = document.getElementById('saveButton');
-const saveButtonContainer = document.getElementById('saveButtonContainer');
-const accountCarousel = document.getElementById('accountCarousel');
-const carouselDots = document.getElementById('carouselDots');
-const creditCardsContainer = document.getElementById('creditCardsContainer');
-const aiSuggestionsContainer = document.getElementById('aiSuggestionsContainer');
-const customizeGrid = document.getElementById('customizeGrid');
-const widgetsGrid = document.getElementById('widgetsGrid');
-const defaultContent = document.getElementById('defaultContent');
-const customizedContent = document.getElementById('customizedContent');
-const aiDetailContent = document.getElementById('aiDetailContent');
+let homeView, customizeView, aiSuggestionsView, billPaymentView, goalSettingView, creditReportView, investmentView;
+let backBtn, menuBtn, customizeBtn, saveButton, saveButtonContainer;
+let accountCarousel, carouselDots, creditCardsContainer, smartInsightsContainer;
+let customizeGrid, widgetsGrid, defaultContent, customizedContent, aiSuggestionsList;
+
+// Global functions (for inline event handlers)
+window.toggleBalance = function(accountId) {
+  balanceVisible[accountId] = !balanceVisible[accountId];
+  renderAccountCards();
+};
+
+window.payBill = function(cardId) {
+  const card = appData.creditCards.find(c => c.id === cardId);
+  alert(`Pay Bill functionality for ${card.cardName}\nDue Amount: ${card.dueAmount}`);
+};
+
+window.viewStatement = function(cardId) {
+  const card = appData.creditCards.find(c => c.id === cardId);
+  alert(`Statement for ${card.cardName}\nLast Statement: ${card.lastStatement}`);
+};
+
+window.handleSmartInsight = function(insightId, actionType) {
+  const insight = appData.smartInsights.find(s => s.id === insightId);
+  
+  switch(insight.category) {
+    case 'bill_payment':
+      showView('bill-payment');
+      renderBillPaymentView(insight);
+      break;
+    case 'savings':
+      showView('goal-setting');
+      renderGoalSettingView(insight, actionType);
+      break;
+  }
+};
+
+window.handleAISuggestion = function(suggestionId, actionType) {
+  const suggestion = appData.aiSuggestions.find(s => s.id === suggestionId);
+  
+  switch(suggestion.category) {
+    case 'bill_payment':
+      showView('bill-payment');
+      renderBillPaymentView(suggestion);
+      break;
+    case 'savings':
+      showView('goal-setting');
+      renderGoalSettingView(suggestion, actionType);
+      break;
+    case 'credit':
+      showView('credit-report');
+      renderCreditReportView(suggestion);
+      break;
+    case 'investment':
+      showView('investment');
+      renderInvestmentView(suggestion);
+      break;
+    case 'loan':
+      alert(`Pay EMI functionality for ${suggestion.details.loanType}\nAmount: ${suggestion.details.emiAmount}`);
+      break;
+  }
+};
 
 // Utility Functions
 function showView(viewName) {
+  console.log('Switching to view:', viewName);
+  
   // Hide all views
-  homeView.classList.add('hidden');
-  customizeView.classList.add('hidden');
-  aiDetailView.classList.add('hidden');
+  const allViews = [homeView, customizeView, aiSuggestionsView, billPaymentView, goalSettingView, creditReportView, investmentView];
+  allViews.forEach(view => {
+    if (view) {
+      view.classList.add('hidden');
+    }
+  });
   
   // Update header buttons
   if (viewName === 'home') {
-    backBtn.classList.add('hidden');
-    menuBtn.classList.remove('hidden');
-    saveButtonContainer.classList.add('hidden');
+    if (backBtn) backBtn.classList.add('hidden');
+    if (menuBtn) menuBtn.classList.remove('hidden');
+    if (saveButtonContainer) saveButtonContainer.classList.add('hidden');
   } else {
-    backBtn.classList.remove('hidden');
-    menuBtn.classList.add('hidden');
+    if (backBtn) backBtn.classList.remove('hidden');
+    if (menuBtn) menuBtn.classList.add('hidden');
     if (viewName === 'customize') {
-      saveButtonContainer.classList.remove('hidden');
+      if (saveButtonContainer) saveButtonContainer.classList.remove('hidden');
     } else {
-      saveButtonContainer.classList.add('hidden');
+      if (saveButtonContainer) saveButtonContainer.classList.add('hidden');
     }
   }
   
   // Show target view
-  if (viewName === 'home') {
-    homeView.classList.remove('hidden');
-  } else if (viewName === 'customize') {
-    customizeView.classList.remove('hidden');
-  } else if (viewName === 'ai-detail') {
-    aiDetailView.classList.remove('hidden');
+  const viewMap = {
+    'home': homeView,
+    'customize': customizeView,
+    'ai-suggestions': aiSuggestionsView,
+    'bill-payment': billPaymentView,
+    'goal-setting': goalSettingView,
+    'credit-report': creditReportView,
+    'investment': investmentView
+  };
+  
+  if (viewMap[viewName]) {
+    viewMap[viewName].classList.remove('hidden');
   }
   
   currentView = viewName;
@@ -222,8 +368,15 @@ function createSVGIcon(iconName, color = '#68131a') {
   return svg;
 }
 
+function isSmartInsightsEnabled() {
+  const smartInsightsWidget = widgets.find(w => w.id === 'smartInsights');
+  return smartInsightsWidget ? smartInsightsWidget.selected : false;
+}
+
 // Account Cards Functions
 function renderAccountCards() {
+  if (!accountCarousel || !carouselDots) return;
+  
   accountCarousel.innerHTML = '';
   carouselDots.innerHTML = '';
   
@@ -273,12 +426,9 @@ function selectAccount(accountId) {
   });
 }
 
-function toggleBalance(accountId) {
-  balanceVisible[accountId] = !balanceVisible[accountId];
-  renderAccountCards();
-}
-
 function scrollToAccount(index) {
+  if (!accountCarousel) return;
+  
   const cardWidth = 280 + 16; // card width + gap
   accountCarousel.scrollTo({
     left: index * cardWidth,
@@ -291,8 +441,65 @@ function scrollToAccount(index) {
   });
 }
 
+// Smart Insights Functions
+function renderSmartInsights() {
+  if (!smartInsightsContainer) return;
+  
+  // Clear existing content
+  smartInsightsContainer.innerHTML = '';
+  
+  // Only show if Smart Insights is enabled
+  if (!isSmartInsightsEnabled()) {
+    smartInsightsContainer.style.display = 'none';
+    return;
+  }
+  
+  smartInsightsContainer.style.display = 'block';
+  
+  // Add section title
+  const titleContainer = document.createElement('div');
+  titleContainer.className = 'section-title';
+  titleContainer.innerHTML = `
+    <h3>Smart Insights</h3>
+    <span class="ai-badge">AI</span>
+  `;
+  smartInsightsContainer.appendChild(titleContainer);
+  
+  // Add insights cards
+  const insightsGrid = document.createElement('div');
+  insightsGrid.className = 'smart-insights-grid';
+  
+  appData.smartInsights.forEach(insight => {
+    const insightCard = document.createElement('div');
+    insightCard.className = `smart-insight-card ${insight.priority}`;
+    
+    const actions = [];
+    actions.push(`<button class="insight-action-btn primary" onclick="handleSmartInsight('${insight.id}', 'primary')">${insight.action}</button>`);
+    if (insight.secondaryAction) {
+      actions.push(`<button class="insight-action-btn secondary" onclick="handleSmartInsight('${insight.id}', 'secondary')">${insight.secondaryAction}</button>`);
+    }
+    
+    insightCard.innerHTML = `
+      <div class="insight-header">
+        <div class="insight-title">${insight.title}</div>
+        <div class="insight-priority priority-${insight.priority}">${insight.priority.toUpperCase()}</div>
+      </div>
+      <div class="insight-description">${insight.description}</div>
+      <div class="insight-actions">
+        ${actions.join('')}
+      </div>
+    `;
+    
+    insightsGrid.appendChild(insightCard);
+  });
+  
+  smartInsightsContainer.appendChild(insightsGrid);
+}
+
 // Credit Cards Functions
 function renderCreditCards() {
+  if (!creditCardsContainer) return;
+  
   creditCardsContainer.innerHTML = '';
   
   appData.creditCards.forEach(card => {
@@ -301,7 +508,9 @@ function renderCreditCards() {
     
     cardElement.innerHTML = `
       <div class="card-header">
-        <div class="card-name">${card.cardName}</div>
+        <div class="card-name">
+          <a href="${card.cardUrl}" target="_blank" class="card-name-link">${card.cardName}</a>
+        </div>
         <div class="card-logo">IDFC</div>
       </div>
       <div class="card-number">${card.cardNumber}</div>
@@ -345,24 +554,22 @@ function renderCreditCards() {
   });
 }
 
-function payBill(cardId) {
-  const card = appData.creditCards.find(c => c.id === cardId);
-  alert(`Pay Bill functionality for ${card.cardName}\nDue Amount: ${card.dueAmount}`);
-}
-
-function viewStatement(cardId) {
-  const card = appData.creditCards.find(c => c.id === cardId);
-  alert(`Statement for ${card.cardName}\nLast Statement: ${card.lastStatement}`);
-}
-
 // AI Suggestions Functions
-function renderAISuggestions() {
-  aiSuggestionsContainer.innerHTML = '';
+function renderAISuggestionsList() {
+  if (!aiSuggestionsList) return;
+  
+  aiSuggestionsList.innerHTML = '';
   
   appData.aiSuggestions.forEach(suggestion => {
     const suggestionElement = document.createElement('div');
     suggestionElement.className = `ai-suggestion ${suggestion.priority}`;
     suggestionElement.dataset.suggestionId = suggestion.id;
+    
+    const actions = [];
+    actions.push(`<button class="suggestion-action" onclick="handleAISuggestion('${suggestion.id}', 'primary')">${suggestion.action}</button>`);
+    if (suggestion.secondaryAction) {
+      actions.push(`<button class="suggestion-action secondary" onclick="handleAISuggestion('${suggestion.id}', 'secondary')">${suggestion.secondaryAction}</button>`);
+    }
     
     suggestionElement.innerHTML = `
       <div class="suggestion-header">
@@ -370,135 +577,183 @@ function renderAISuggestions() {
         <div class="suggestion-priority priority-${suggestion.priority}">${suggestion.priority.toUpperCase()}</div>
       </div>
       <div class="suggestion-description">${suggestion.description}</div>
-      <button class="suggestion-action" onclick="handleAISuggestion('${suggestion.id}')">${suggestion.action}</button>
+      <div class="suggestion-actions">
+        ${actions.join('')}
+      </div>
     `;
     
-    suggestionElement.addEventListener('click', (e) => {
-      if (!e.target.classList.contains('suggestion-action')) {
-        showAISuggestionDetail(suggestion.id);
-      }
-    });
-    
-    aiSuggestionsContainer.appendChild(suggestionElement);
+    aiSuggestionsList.appendChild(suggestionElement);
   });
 }
 
-function handleAISuggestion(suggestionId) {
-  const suggestion = appData.aiSuggestions.find(s => s.id === suggestionId);
+// Bill Payment View Functions
+function renderBillPaymentView(suggestion) {
+  const paymentOptions = document.getElementById('paymentOptions');
+  if (paymentOptions) {
+    paymentOptions.innerHTML = '';
+    
+    appData.paymentMethods.forEach(method => {
+      const option = document.createElement('div');
+      option.className = `payment-option ${method.id === selectedPaymentMethod ? 'selected' : ''}`;
+      option.dataset.methodId = method.id;
+      
+      const iconSvg = createSVGIcon(method.icon, '#68131a');
+      iconSvg.classList.add('payment-icon');
+      
+      option.appendChild(iconSvg);
+      
+      const details = document.createElement('div');
+      details.className = 'payment-details';
+      details.innerHTML = `
+        <div class="payment-name">${method.name}</div>
+        <div class="payment-description">${method.details}</div>
+      `;
+      option.appendChild(details);
+      
+      option.addEventListener('click', () => {
+        selectedPaymentMethod = method.id;
+        document.querySelectorAll('.payment-option').forEach(opt => {
+          opt.classList.toggle('selected', opt.dataset.methodId === method.id);
+        });
+      });
+      
+      paymentOptions.appendChild(option);
+    });
+  }
   
-  switch(suggestion.category) {
-    case 'bill_payment':
-      alert(`Redirecting to bill payment for electricity bill of ₹1,240`);
-      break;
-    case 'savings':
-      alert(`Setting up savings goal of ₹5,000/month for vacation`);
-      break;
-    case 'credit':
-      alert(`Opening credit score report...`);
-      break;
-    case 'investment':
-      alert(`Exploring SIP investment options...`);
-      break;
+  // Add event listener for pay button
+  const payNowBtn = document.getElementById('payNowBtn');
+  if (payNowBtn) {
+    payNowBtn.onclick = function() {
+      const selectedMethod = appData.paymentMethods.find(m => m.id === selectedPaymentMethod);
+      alert(`Payment of ₹1,240 initiated via ${selectedMethod.name}\nTransaction processing...`);
+      showView('home');
+    };
   }
 }
 
-function showAISuggestionDetail(suggestionId) {
-  const suggestion = appData.aiSuggestions.find(s => s.id === suggestionId);
-  currentAISuggestion = suggestion;
+// Goal Setting View Functions  
+function renderGoalSettingView(suggestion, actionType) {
+  const destinationInput = document.getElementById('destinationInput');
+  const targetAmountInput = document.getElementById('targetAmountInput');
+  const timelineSelect = document.getElementById('timelineSelect');
+  const monthlySavings = document.getElementById('monthlySavings');
+  const createGoalBtn = document.getElementById('createGoalBtn');
+  const editGoalBtn = document.getElementById('editGoalBtn');
   
-  const detailContent = getAISuggestionDetailContent(suggestion);
-  aiDetailContent.innerHTML = detailContent;
+  if (actionType === 'secondary') {
+    // Edit mode - populate with existing data
+    if (destinationInput) destinationInput.value = suggestion.details.destination;
+    if (targetAmountInput) targetAmountInput.value = suggestion.details.targetAmount;
+    if (timelineSelect) timelineSelect.value = suggestion.details.timelineMonths;
+    updateMonthlySavings();
+    
+    if (createGoalBtn) createGoalBtn.style.display = 'none';
+    if (editGoalBtn) editGoalBtn.style.display = 'block';
+  } else {
+    // Create mode
+    if (createGoalBtn) createGoalBtn.style.display = 'block';
+    if (editGoalBtn) editGoalBtn.style.display = 'none';
+  }
   
-  showView('ai-detail');
+  // Add event listeners
+  if (targetAmountInput && timelineSelect) {
+    [targetAmountInput, timelineSelect].forEach(element => {
+      element.addEventListener('change', updateMonthlySavings);
+    });
+  }
+  
+  if (createGoalBtn) {
+    createGoalBtn.onclick = function() {
+      alert('Vacation savings goal created successfully!\nMonthly target: ₹6,250');
+      showView('home');
+    };
+  }
+  
+  if (editGoalBtn) {
+    editGoalBtn.onclick = function() {
+      alert('Vacation savings goal updated successfully!');
+      showView('home');
+    };
+  }
 }
 
-function getAISuggestionDetailContent(suggestion) {
-  const detailsMap = {
-    'ai1': {
-      title: 'Electricity Bill Payment',
-      description: 'Your KSEB electricity bill is due in 3 days. Pay now to avoid late fees and ensure uninterrupted service.',
-      actions: [
-        { label: 'Pay ₹1,240 Now', action: 'pay', primary: true },
-        { label: 'Set Reminder', action: 'remind', primary: false },
-        { label: 'View Bill Details', action: 'details', primary: false }
-      ]
-    },
-    'ai2': {
-      title: 'Vacation Savings Goal',
-      description: 'Based on your spending pattern, you can comfortably save ₹5,000 per month for your vacation. This will help you save ₹60,000 in a year for your dream trip.',
-      actions: [
-        { label: 'Set Savings Goal', action: 'save', primary: true },
-        { label: 'View Spending Analysis', action: 'analysis', primary: false },
-        { label: 'Maybe Later', action: 'later', primary: false }
-      ]
-    },
-    'ai3': {
-      title: 'Credit Score Improvement',
-      description: 'Great news! Your credit score has improved by 15 points this month. Check your detailed credit report to see what factors contributed to this improvement.',
-      actions: [
-        { label: 'View Full Report', action: 'report', primary: true },
-        { label: 'Credit Score Tips', action: 'tips', primary: false },
-        { label: 'Monitor Score', action: 'monitor', primary: false }
-      ]
-    },
-    'ai4': {
-      title: 'Tax-Saving Investment',
-      description: 'Invest in ELSS mutual funds through SIP to save tax under Section 80C while building wealth for the long term. Based on your income, you can save up to ₹46,800 in taxes.',
-      actions: [
-        { label: 'Start SIP Investment', action: 'invest', primary: true },
-        { label: 'Learn About ELSS', action: 'learn', primary: false },
-        { label: 'Tax Calculator', action: 'calculator', primary: false }
-      ]
-    }
-  };
+function updateMonthlySavings() {
+  const targetAmountInput = document.getElementById('targetAmountInput');
+  const timelineSelect = document.getElementById('timelineSelect');
+  const monthlySavings = document.getElementById('monthlySavings');
   
-  const details = detailsMap[suggestion.id] || {
-    title: suggestion.title,
-    description: suggestion.description,
-    actions: [{ label: suggestion.action, action: 'default', primary: true }]
-  };
-  
-  return `
-    <div class="ai-detail-header">
-      <div class="ai-detail-title">${details.title}</div>
-      <div class="ai-detail-description">${details.description}</div>
-    </div>
-    <div class="ai-detail-actions">
-      ${details.actions.map(action => `
-        <button class="ai-action-btn ${action.primary ? 'primary' : 'secondary'}" 
-                onclick="handleAIDetailAction('${action.action}', '${suggestion.id}')">
-          ${action.label}
-        </button>
-      `).join('')}
-    </div>
-  `;
+  if (targetAmountInput && timelineSelect && monthlySavings) {
+    const amount = parseFloat(targetAmountInput.value.replace('₹', '').replace(',', '')) || 75000;
+    const months = parseInt(timelineSelect.value) || 12;
+    const monthly = Math.ceil(amount / months);
+    monthlySavings.textContent = `₹${monthly.toLocaleString()}`;
+  }
 }
 
-function handleAIDetailAction(action, suggestionId) {
-  const actionMessages = {
-    'pay': 'Redirecting to bill payment...',
-    'remind': 'Reminder set for 2 days before due date',
-    'details': 'Opening bill details...',
-    'save': 'Savings goal created successfully!',
-    'analysis': 'Opening spending analysis...',
-    'later': 'We\'ll remind you later',
-    'report': 'Opening detailed credit report...',
-    'tips': 'Here are some tips to improve your credit score...',
-    'monitor': 'Credit score monitoring enabled',
-    'invest': 'Redirecting to SIP investment options...',
-    'learn': 'Opening ELSS education content...',
-    'calculator': 'Opening tax calculator...',
-    'default': 'Action completed!'
-  };
+// Credit Report View Functions
+function renderCreditReportView(suggestion) {
+  const downloadReportBtn = document.getElementById('downloadReportBtn');
+  const creditTipsBtn = document.getElementById('creditTipsBtn');
   
-  alert(actionMessages[action] || 'Action completed!');
-  showView('home');
+  if (downloadReportBtn) {
+    downloadReportBtn.onclick = function() {
+      alert('Credit report downloaded successfully!');
+      showView('home');
+    };
+  }
+  
+  if (creditTipsBtn) {
+    creditTipsBtn.onclick = function() {
+      alert('Credit Improvement Tips:\n• Pay bills on time\n• Keep credit utilization below 30%\n• Maintain old credit accounts\n• Monitor credit report regularly');
+    };
+  }
+}
+
+// Investment View Functions
+function renderInvestmentView(suggestion) {
+  const startSIPBtn = document.getElementById('startSIPBtn');
+  const exploreFundsBtn = document.getElementById('exploreFundsBtn');
+  const sipAmountInput = document.getElementById('sipAmountInput');
+  
+  if (sipAmountInput) {
+    sipAmountInput.addEventListener('input', function() {
+      // Update projections based on SIP amount
+      const amount = parseFloat(this.value.replace('₹', '').replace(',', '')) || 10000;
+      const tenYearValue = Math.round(amount * 12 * 10 * 1.93); // Rough calculation for 14% returns
+      const projectionElement = document.querySelector('.projection-item:last-child span:last-child');
+      if (projectionElement) {
+        projectionElement.textContent = `₹${(tenYearValue / 100000).toFixed(0)}.${((tenYearValue % 100000) / 1000).toFixed(0)} Lakh`;
+      }
+    });
+  }
+  
+  if (startSIPBtn) {
+    startSIPBtn.onclick = function() {
+      const amount = sipAmountInput ? sipAmountInput.value : '₹10,000';
+      alert(`SIP investment of ${amount} started in IDFC Tax Advantage Fund!\nFirst installment will be debited on 1st of next month.`);
+      showView('home');
+    };
+  }
+  
+  if (exploreFundsBtn) {
+    exploreFundsBtn.onclick = function() {
+      alert('Exploring more mutual fund options...\n• IDFC Large Cap Fund\n• IDFC Flexi Cap Fund\n• IDFC Bond Fund');
+    };
+  }
 }
 
 // Customize Functions
 function renderCustomizeOptions() {
+  console.log('Rendering customize options');
+  if (!customizeGrid) {
+    console.error('customizeGrid not found');
+    return;
+  }
+  
   customizeGrid.innerHTML = '';
   
+  // Render widget options
   widgets.forEach(widget => {
     const option = document.createElement('div');
     option.className = `customize-option ${widget.selected ? 'selected' : ''}`;
@@ -538,9 +793,11 @@ function toggleWidget(widgetId) {
 }
 
 function renderWidgets() {
+  if (!widgetsGrid) return;
+  
   widgetsGrid.innerHTML = '';
   
-  widgets.filter(widget => widget.selected).forEach(widget => {
+  widgets.filter(widget => widget.selected && widget.id !== 'smartInsights').forEach(widget => {
     const widgetElement = document.createElement('div');
     widgetElement.className = 'widget';
     
@@ -563,6 +820,8 @@ function renderWidgets() {
 }
 
 function updateHomepageContent() {
+  if (!defaultContent || !customizedContent) return;
+  
   if (homepageMode === 'default') {
     defaultContent.classList.remove('hidden');
     customizedContent.classList.add('hidden');
@@ -571,42 +830,113 @@ function updateHomepageContent() {
     customizedContent.classList.remove('hidden');
     renderWidgets();
   }
+  
+  // Always render smart insights if enabled, regardless of homepage mode
+  renderSmartInsights();
 }
 
-// Event Listeners
-customizeBtn.addEventListener('click', () => {
-  showView('customize');
-  renderCustomizeOptions();
-});
-
-backBtn.addEventListener('click', () => {
-  showView('home');
-});
-
-saveButton.addEventListener('click', () => {
-  homepageMode = 'customized';
-  updateHomepageContent();
-  showView('home');
-});
-
-// Handle carousel scroll
-accountCarousel.addEventListener('scroll', () => {
-  const scrollLeft = accountCarousel.scrollLeft;
-  const cardWidth = 280 + 16; // card width + gap
-  const activeIndex = Math.round(scrollLeft / cardWidth);
+// Initialize DOM Elements
+function initializeElements() {
+  console.log('Initializing DOM elements');
   
-  document.querySelectorAll('.dot').forEach((dot, index) => {
-    dot.classList.toggle('active', index === activeIndex);
+  homeView = document.getElementById('homeView');
+  customizeView = document.getElementById('customizeView');
+  aiSuggestionsView = document.getElementById('aiSuggestionsView');
+  billPaymentView = document.getElementById('billPaymentView');
+  goalSettingView = document.getElementById('goalSettingView');
+  creditReportView = document.getElementById('creditReportView');
+  investmentView = document.getElementById('investmentView');
+  
+  backBtn = document.getElementById('backBtn');
+  menuBtn = document.getElementById('menuBtn');
+  customizeBtn = document.getElementById('customizeBtn');
+  saveButton = document.getElementById('saveButton');
+  saveButtonContainer = document.getElementById('saveButtonContainer');
+  
+  accountCarousel = document.getElementById('accountCarousel');
+  carouselDots = document.getElementById('carouselDots');
+  creditCardsContainer = document.getElementById('creditCardsContainer');
+  smartInsightsContainer = document.getElementById('smartInsightsContainer');
+  aiSuggestionsList = document.getElementById('aiSuggestionsList');
+  
+  customizeGrid = document.getElementById('customizeGrid');
+  widgetsGrid = document.getElementById('widgetsGrid');
+  defaultContent = document.getElementById('defaultContent');
+  customizedContent = document.getElementById('customizedContent');
+  
+  // Log which elements were found
+  console.log('Found elements:', {
+    homeView: !!homeView,
+    customizeView: !!customizeView,
+    customizeBtn: !!customizeBtn,
+    customizeGrid: !!customizeGrid,
+    saveButton: !!saveButton,
+    smartInsightsContainer: !!smartInsightsContainer
   });
-});
+}
+
+// Initialize event listeners
+function initializeEventListeners() {
+  console.log('Initializing event listeners');
+  
+  // Customize button
+  if (customizeBtn) {
+    console.log('Adding customize button listener');
+    customizeBtn.addEventListener('click', (e) => {
+      console.log('Customize button clicked!');
+      e.preventDefault();
+      showView('customize');
+      renderCustomizeOptions();
+    });
+  } else {
+    console.error('customizeBtn not found!');
+  }
+
+  // Back button
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      console.log('Back button clicked');
+      e.preventDefault();
+      showView('home');
+    });
+  }
+
+  // Save button
+  if (saveButton) {
+    saveButton.addEventListener('click', (e) => {
+      console.log('Save button clicked');
+      e.preventDefault();
+      homepageMode = 'customized';
+      updateHomepageContent();
+      showView('home');
+    });
+  }
+
+  // Handle carousel scroll
+  if (accountCarousel) {
+    accountCarousel.addEventListener('scroll', () => {
+      const scrollLeft = accountCarousel.scrollLeft;
+      const cardWidth = 280 + 16; // card width + gap
+      const activeIndex = Math.round(scrollLeft / cardWidth);
+      
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+  }
+}
 
 // Initialize the app
 function initializeApp() {
+  console.log('Starting app initialization');
+  initializeElements();
+  initializeEventListeners();
   renderAccountCards();
   renderCreditCards();
-  renderAISuggestions();
+  renderSmartInsights(); // Make sure to render Smart Insights on startup
   updateHomepageContent();
   showView('home');
+  console.log('App initialization complete');
 }
 
 // Start the application

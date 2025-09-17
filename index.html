@@ -114,27 +114,6 @@
                         </div>
                     </div>
 
-                    <!-- Credit Cards Section -->
-                    <div class="credit-cards-section">
-                        <div class="section-title">
-                            <h3>Credit Cards</h3>
-                        </div>
-                        <div class="credit-cards" id="creditCardsContainer">
-                            <!-- Credit cards will be populated by JavaScript -->
-                        </div>
-                    </div>
-
-                    <!-- AI Suggestions Section -->
-                    <div class="ai-suggestions-section">
-                        <div class="section-title">
-                            <h3>AI Suggestions</h3>
-                            <span class="ai-badge">AI</span>
-                        </div>
-                        <div class="ai-suggestions" id="aiSuggestionsContainer">
-                            <!-- AI suggestions will be populated by JavaScript -->
-                        </div>
-                    </div>
-
                     <!-- Homepage Content based on mode -->
                     <div class="homepage-content" id="homepageContent">
                         <div class="default-content" id="defaultContent">
@@ -177,6 +156,32 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Smart Insights Section -->
+                    <div class="smart-insights-section" id="smartInsightsContainer">
+                        <!-- Smart insights will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Credit Cards Section -->
+                    <div class="credit-cards-section">
+                        <div class="section-title">
+                            <h3>Credit Cards</h3>
+                        </div>
+                        <div class="credit-cards" id="creditCardsContainer">
+                            <!-- Credit cards will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Suggestions View -->
+                <div class="view ai-suggestions-view hidden" id="aiSuggestionsView">
+                    <div class="ai-suggestions-header">
+                        <h3>AI Suggestions</h3>
+                        <span class="ai-badge">AI</span>
+                    </div>
+                    <div class="ai-suggestions-list" id="aiSuggestionsList">
+                        <!-- AI suggestions will be populated by JavaScript -->
+                    </div>
                 </div>
 
                 <!-- Customize View -->
@@ -184,15 +189,155 @@
                     <div class="customize-header">
                         <h3>Customize your homepage</h3>
                     </div>
-                    <div class="customize-grid" id="customizeGrid">
-                        <!-- Customize options will be populated by JavaScript -->
+                    
+                    <!-- Widgets Section -->
+                    <div class="customize-section">
+                        <h4>Widgets</h4>
+                        <div class="customize-grid" id="customizeGrid">
+                            <!-- Customize options will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
 
-                <!-- AI Suggestion Detail View -->
-                <div class="view ai-detail-view hidden" id="aiDetailView">
-                    <div class="ai-detail-content" id="aiDetailContent">
-                        <!-- AI suggestion details will be populated by JavaScript -->
+                <!-- Bill Payment View -->
+                <div class="view bill-payment-view hidden" id="billPaymentView">
+                    <div class="action-detail-content">
+                        <div class="action-detail-header">
+                            <h3>Pay Electricity Bill</h3>
+                        </div>
+                        <div class="bill-details">
+                            <div class="bill-info">
+                                <div class="bill-provider">Delhi Electricity Board</div>
+                                <div class="bill-consumer">Consumer Number: 1234567890</div>
+                                <div class="bill-amount">₹1,240</div>
+                                <div class="bill-due">Due: 20 Sep 2025</div>
+                            </div>
+                        </div>
+                        <div class="payment-methods">
+                            <h4>Select Payment Method</h4>
+                            <div class="payment-options" id="paymentOptions">
+                                <!-- Payment methods will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn--primary btn--full-width" id="payNowBtn">Pay ₹1,240</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goal Setting View -->
+                <div class="view goal-setting-view hidden" id="goalSettingView">
+                    <div class="action-detail-content">
+                        <div class="action-detail-header">
+                            <h3>Set Vacation Goal</h3>
+                        </div>
+                        <div class="goal-form">
+                            <div class="form-group">
+                                <label class="form-label">Destination</label>
+                                <input type="text" class="form-control" value="European Tour" id="destinationInput">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Target Amount</label>
+                                <input type="text" class="form-control" value="₹75,000" id="targetAmountInput">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Timeline (Months)</label>
+                                <select class="form-control" id="timelineSelect">
+                                    <option value="6">6 Months</option>
+                                    <option value="12" selected>12 Months</option>
+                                    <option value="18">18 Months</option>
+                                    <option value="24">24 Months</option>
+                                </select>
+                            </div>
+                            <div class="goal-calculation">
+                                <div class="calc-item">
+                                    <span>Monthly Savings Required:</span>
+                                    <span class="calc-amount" id="monthlySavings">₹6,250</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn--primary btn--full-width" id="createGoalBtn">Create Goal</button>
+                            <button class="btn btn--secondary btn--full-width" id="editGoalBtn">Edit Existing Goal</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Credit Report View -->
+                <div class="view credit-report-view hidden" id="creditReportView">
+                    <div class="action-detail-content">
+                        <div class="action-detail-header">
+                            <h3>Credit Score Report</h3>
+                        </div>
+                        <div class="credit-score-display">
+                            <div class="score-gauge">
+                                <div class="score-number">785</div>
+                                <div class="score-label">Excellent</div>
+                            </div>
+                            <div class="score-improvement">
+                                <span class="improvement-text">↗ +15 points this month</span>
+                            </div>
+                        </div>
+                        <div class="credit-factors">
+                            <h4>Key Factors</h4>
+                            <div class="factor-list">
+                                <div class="factor-item good">
+                                    <span>Payment History</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="factor-item good">
+                                    <span>Credit Utilization</span>
+                                    <span>18%</span>
+                                </div>
+                                <div class="factor-item average">
+                                    <span>Credit Age</span>
+                                    <span>3.2 years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn--primary btn--full-width" id="downloadReportBtn">Download Full Report</button>
+                            <button class="btn btn--secondary btn--full-width" id="creditTipsBtn">Improvement Tips</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment View -->
+                <div class="view investment-view hidden" id="investmentView">
+                    <div class="action-detail-content">
+                        <div class="action-detail-header">
+                            <h3>Investment Options</h3>
+                        </div>
+                        <div class="investment-recommendation">
+                            <div class="recommended-fund">
+                                <h4>IDFC Tax Advantage Fund</h4>
+                                <div class="fund-details">
+                                    <div class="fund-return">Expected Returns: 12-15%</div>
+                                    <div class="fund-type">ELSS • Tax Saving</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sip-calculator">
+                            <h4>SIP Calculator</h4>
+                            <div class="form-group">
+                                <label class="form-label">Monthly SIP Amount</label>
+                                <input type="text" class="form-control" value="₹10,000" id="sipAmountInput">
+                            </div>
+                            <div class="sip-projection">
+                                <div class="projection-item">
+                                    <span>Tax Saving (80C):</span>
+                                    <span>₹46,800</span>
+                                </div>
+                                <div class="projection-item">
+                                    <span>10-Year Value:</span>
+                                    <span>₹23,23,000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn--primary btn--full-width" id="startSIPBtn">Start SIP Investment</button>
+                            <button class="btn btn--secondary btn--full-width" id="exploreFundsBtn">Explore More Funds</button>
+                        </div>
                     </div>
                 </div>
             </div>

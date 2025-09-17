@@ -1088,6 +1088,121 @@ select.form-control {
   font-weight: var(--font-weight-medium);
 }
 
+/* Smart Insights Section */
+.smart-insights-section {
+  margin-bottom: var(--space-32);
+}
+
+.smart-insights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.smart-insight-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+.smart-insight-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.smart-insight-card.high {
+  border-left: 4px solid #ff6b6b;
+}
+
+.smart-insight-card.medium {
+  border-left: 4px solid #D4AF37;
+}
+
+.smart-insight-card.low {
+  border-left: 4px solid #68131a;
+}
+
+.insight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+}
+
+.insight-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.insight-priority {
+  font-size: var(--font-size-xs);
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.priority-high {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+}
+
+.priority-medium {
+  background-color: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
+}
+
+.priority-low {
+  background-color: rgba(104, 19, 26, 0.1);
+  color: #68131a;
+}
+
+.insight-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-12);
+  line-height: 1.4;
+}
+
+.insight-actions {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.insight-action-btn {
+  border: none;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.insight-action-btn.primary {
+  background-color: #68131a;
+  color: white;
+}
+
+.insight-action-btn.primary:hover {
+  background-color: #7a1a1e;
+}
+
+.insight-action-btn.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.insight-action-btn.secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+
 /* Credit Cards */
 .credit-cards-section {
   margin-bottom: var(--space-32);
@@ -1130,6 +1245,15 @@ select.form-control {
 .card-name {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
+}
+
+.card-name-link {
+  color: white;
+  text-decoration: none;
+}
+
+.card-name-link:hover {
+  color: #D4AF37;
 }
 
 .card-logo {
@@ -1246,15 +1370,28 @@ select.form-control {
   font-weight: var(--font-weight-medium);
 }
 
-/* AI Suggestions */
-.ai-suggestions-section {
-  margin-bottom: var(--space-32);
+/* AI Suggestions View */
+.ai-suggestions-view {
+  padding: var(--space-20);
 }
 
-.ai-suggestions {
+.ai-suggestions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-24);
+}
+
+.ai-suggestions-header h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.ai-suggestions-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: var(--space-16);
 }
 
 .ai-suggestion {
@@ -1305,26 +1442,17 @@ select.form-control {
   font-weight: var(--font-weight-medium);
 }
 
-.priority-high {
-  background-color: rgba(255, 107, 107, 0.1);
-  color: #ff6b6b;
-}
-
-.priority-medium {
-  background-color: rgba(212, 175, 55, 0.1);
-  color: #D4AF37;
-}
-
-.priority-low {
-  background-color: rgba(104, 19, 26, 0.1);
-  color: #68131a;
-}
-
 .suggestion-description {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-12);
   line-height: 1.4;
+}
+
+.suggestion-actions {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
 }
 
 .suggestion-action {
@@ -1341,6 +1469,15 @@ select.form-control {
 
 .suggestion-action:hover {
   background-color: #7a1a1e;
+}
+
+.suggestion-action.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.suggestion-action.secondary:hover {
+  background-color: var(--color-secondary-hover);
 }
 
 /* Homepage Content */
@@ -1424,6 +1561,17 @@ select.form-control {
   color: var(--color-text);
 }
 
+.customize-section {
+  margin-bottom: var(--space-32);
+}
+
+.customize-section h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+}
+
 .customize-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1488,62 +1636,282 @@ select.form-control {
   color: var(--color-text-secondary);
 }
 
-/* AI Detail View */
-.ai-detail-content {
+/* Action Detail Views */
+.action-detail-content {
   padding: var(--space-20);
 }
 
-.ai-detail-header {
+.action-detail-header {
   text-align: center;
   margin-bottom: var(--space-32);
 }
 
-.ai-detail-title {
+.action-detail-header h3 {
   font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+/* Bill Payment Styles */
+.bill-details {
+  background-color: var(--color-bg-1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  margin-bottom: var(--space-24);
+}
+
+.bill-info {
+  text-align: center;
+}
+
+.bill-provider {
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   margin-bottom: var(--space-8);
 }
 
-.ai-detail-description {
-  font-size: var(--font-size-md);
+.bill-consumer {
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  margin-bottom: var(--space-16);
 }
 
-.ai-detail-actions {
+.bill-amount {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: #68131a;
+  margin-bottom: var(--space-8);
+}
+
+.bill-due {
+  font-size: var(--font-size-sm);
+  color: #ff6b6b;
+  font-weight: var(--font-weight-medium);
+}
+
+.payment-methods {
+  margin-bottom: var(--space-24);
+}
+
+.payment-methods h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.payment-option {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-12);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.payment-option:hover {
+  border-color: #68131a;
+}
+
+.payment-option.selected {
+  border-color: #68131a;
+  background-color: rgba(104, 19, 26, 0.05);
+}
+
+.payment-icon {
+  width: 24px;
+  height: 24px;
+  color: #68131a;
+}
+
+.payment-details {
+  flex: 1;
+}
+
+.payment-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.payment-description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Goal Setting Styles */
+.goal-form {
+  margin-bottom: var(--space-24);
+}
+
+.goal-calculation {
+  background-color: var(--color-bg-3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.calc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+}
+
+.calc-amount {
+  font-weight: var(--font-weight-bold);
+  color: #68131a;
+}
+
+/* Credit Report Styles */
+.credit-score-display {
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.score-gauge {
+  background-color: var(--color-bg-4);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  margin-bottom: var(--space-16);
+}
+
+.score-number {
+  font-size: 4rem;
+  font-weight: var(--font-weight-bold);
+  color: #68131a;
+  margin-bottom: var(--space-8);
+}
+
+.score-label {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.score-improvement {
+  color: #22c55e;
+  font-weight: var(--font-weight-medium);
+}
+
+.improvement-text {
+  font-size: var(--font-size-sm);
+}
+
+.credit-factors {
+  margin-bottom: var(--space-24);
+}
+
+.credit-factors h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+}
+
+.factor-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.factor-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-12);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+}
+
+.factor-item.good {
+  background-color: var(--color-bg-3);
+  color: #22c55e;
+}
+
+.factor-item.average {
+  background-color: var(--color-bg-2);
+  color: #f59e0b;
+}
+
+/* Investment Styles */
+.investment-recommendation {
+  background-color: var(--color-bg-5);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  margin-bottom: var(--space-24);
+}
+
+.recommended-fund h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.fund-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.fund-return {
+  font-size: var(--font-size-sm);
+  color: #22c55e;
+  font-weight: var(--font-weight-medium);
+}
+
+.fund-type {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.sip-calculator {
+  margin-bottom: var(--space-24);
+}
+
+.sip-calculator h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+}
+
+.sip-projection {
+  background-color: var(--color-bg-6);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.projection-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-8) 0;
+  font-size: var(--font-size-sm);
+}
+
+.projection-item:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Action Buttons */
+.action-buttons {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
   margin-top: var(--space-32);
-}
-
-.ai-action-btn {
-  padding: var(--space-16);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-standard);
-  border: none;
-}
-
-.ai-action-btn.primary {
-  background-color: #68131a;
-  color: white;
-}
-
-.ai-action-btn.primary:hover {
-  background-color: #7a1a1e;
-}
-
-.ai-action-btn.secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-text);
-}
-
-.ai-action-btn.secondary:hover {
-  background-color: var(--color-secondary-hover);
 }
 
 /* Bottom Navigation */
